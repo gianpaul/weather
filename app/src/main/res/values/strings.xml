@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Weather Coroutines</string>
+    <string name="home_fragment">homeFragment</string>
+    <string name="one_call">Medellin</string>
+    <string name="second_call">Cali</string>
+    <string name="double_call">Double Call</string>
+    <string name="clear_cache">Clear Cache</string>
+    <string name="clear">Clear</string>
+    <string name="feat_address_location_hint">Type an address…</string>
+    <string name="feat_address_content_description_location_icon">Icon location</string>
+    <string name="close">Close</string>
+
+    <!--item weather-->
+    <string name="latitude">Latitude: %s</string>
+    <string name="longitude">Longitude: %s</string>
+    <string name="time_zone">Time zone: %s</string>
+    <string name="clouds">Clouds: %s</string>
+    <string name="humidity">Humidity: %s</string>
+    <string name="pressure">Pressure: %s</string>
+    <string name="sunrise">Sunrise: %s</string>
+    <string name="sunset">Sunset: %s</string>
+    <string name="temperature">Temperature: %s</string>
+    <string name="uvi">Uvi: %s</string>
+    <string name="visibility">Visibility: %s</string>
+</resources>

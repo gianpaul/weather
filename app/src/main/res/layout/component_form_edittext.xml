@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false">
+
+    <LinearLayout
+        android:id="@+id/componentLayout"
+        style="@style/Widget.ComponentForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.example.weathercoroutines.utils.DebounceEditText
+            android:id="@+id/editText"
+            style="@style/Widget.FormEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/space_8x"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="top"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:paddingVertical="@dimen/space_4x"
+            android:saveEnabled="false"
+            tools:hint="Form EditText"
+            tools:ignore="LabelFor" />
+
+        <ImageView
+            android:id="@+id/clear"
+            android:layout_width="@dimen/icon_size_l"
+            android:layout_height="@dimen/icon_size_l"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/space_3x"
+            android:background="@drawable/null_"
+            android:contentDescription="@string/clear"
+            android:padding="2dp"
+            android:src="@drawable/ic_system_close_filled"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

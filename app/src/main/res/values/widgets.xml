@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget" />
+
+    <style name="Widget.ComponentForm">
+        <item name="android:background">@drawable/background_form</item>
+        <item name="android:paddingHorizontal">@dimen/space_3x</item>
+    </style>
+
+    <style name="Widget.FormEditText">
+        <item name="android:theme">@style/TextAppearance.Form</item>
+        <item name="android:textAppearance">@style/TextAppearance.Form</item>
+        <item name="android:textColorHint">@color/textPrimaryMuted</item>
+        <item name="android:background">@drawable/null_</item>
+    </style>
+</resources>
