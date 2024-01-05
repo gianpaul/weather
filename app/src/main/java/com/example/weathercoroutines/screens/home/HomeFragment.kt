@@ -1,13 +1,13 @@
 package com.example.weathercoroutines.screens.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +17,7 @@ import com.example.weathercoroutines.maps.component.DialogItemWeather
 import com.example.weathercoroutines.screens.home.adapter.AddressesAdapter
 import com.example.weathercoroutines.screens.home.viewmodel.HomeViewModel
 import com.example.weathercoroutines.utils.DefaultPlace
+import com.example.weathercoroutines.utils.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
@@ -92,7 +93,7 @@ class HomeFragment : Fragment() {
                 showMarker = true
             )
 
-            binding.componentMap.setOnLocationChangedListener { latitude, longitude ->
+            binding.componentMap.setOnMapClickListener { latitude, longitude ->
                 getWeatherByCoordinates(latitude, longitude)
             }
         }
@@ -104,9 +105,11 @@ class HomeFragment : Fragment() {
 
     private fun updateMapPosition(latitude: Double?, longitude: Double?) {
         binding.componentMap.setCenter(latitude ?: 0.0, longitude ?: 0.0)
+        getWeatherByCoordinates(latitude, longitude)
     }
 
     private fun handleAddress(address: Address) {
+        view?.hideKeyboard()
         viewModel.getPlaceDetails(address)
         binding.recyclerView.isVisible = false
     }

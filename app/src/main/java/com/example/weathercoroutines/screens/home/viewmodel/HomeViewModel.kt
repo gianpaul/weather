@@ -10,6 +10,7 @@ import com.example.domain.usecase.ClearCacheUseCase
 import com.example.domain.usecase.GetWeatherUseCase
 import com.example.weathercoroutines.model.toUiModel
 import com.example.weathercoroutines.screens.home.HomeState
+import com.example.weathercoroutines.utils.round
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
@@ -106,9 +107,4 @@ class HomeViewModel @Inject constructor(
             loading.send(false)
         }
     }
-}
-
-fun Double.round(num: Int): Double {
-    val factor = 10.0.pow(num.toDouble())
-    return (this * factor).roundToInt() / factor
 }

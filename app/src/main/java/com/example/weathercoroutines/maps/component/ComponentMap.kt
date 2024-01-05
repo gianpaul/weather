@@ -106,4 +106,12 @@ class ComponentMap @JvmOverloads constructor(
             function.invoke(midLatLng.latitude, midLatLng.longitude)
         }
     }
+
+    fun setOnMapClickListener(function: (latitude: Double, longitude: Double) -> Unit) {
+        val googleMap = this.googleMap ?: return
+        googleMap.setOnMapClickListener {
+            val midLatLng: LatLng = it
+            function.invoke(midLatLng.latitude, midLatLng.longitude)
+        }
+    }
 }
