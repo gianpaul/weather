@@ -12,5 +12,6 @@ data class WeatherModel(
     val sunset: Int,
     val temp: Double,
     val uvi: Double,
-    val visibility: Int
+    val visibility: Int,
+    val icon: String
 )

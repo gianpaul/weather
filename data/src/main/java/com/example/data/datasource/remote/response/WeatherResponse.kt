@@ -25,5 +25,6 @@ fun WeatherResponse.toEntity() = WeatherEntity(
     this.current.sunset,
     this.current.temp,
     this.current.uvi,
-    this.current.visibility
+    this.current.visibility,
+    this.current.weather.first().icon
 )

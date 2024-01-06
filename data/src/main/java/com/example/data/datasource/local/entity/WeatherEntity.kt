@@ -17,6 +17,7 @@ data class WeatherEntity(
     val temp: Double,
     val uvi: Double,
     val visibility: Int,
+    val icon: String,
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0
 )
@@ -34,4 +35,5 @@ fun WeatherEntity.toDomainModel() = WeatherModel(
     this.temp,
     this.uvi,
     this.visibility,
+    this.icon
 )

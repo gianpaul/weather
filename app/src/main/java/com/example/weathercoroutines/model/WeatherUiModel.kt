@@ -14,7 +14,8 @@ data class WeatherUiModel(
     val sunset: Int,
     val temp: Double,
     val uvi: Double,
-    val visibility: Int
+    val visibility: Int,
+    val icon: String
 )
 
 fun WeatherModel.toUiModel() = WeatherUiModel(
@@ -30,4 +31,5 @@ fun WeatherModel.toUiModel() = WeatherUiModel(
     this.temp,
     this.uvi,
     this.visibility,
+    this.icon
 )

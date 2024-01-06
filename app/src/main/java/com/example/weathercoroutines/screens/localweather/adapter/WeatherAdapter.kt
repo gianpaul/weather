@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weathercoroutines.databinding.ItemWeatherBinding
 import com.example.weathercoroutines.model.WeatherUiModel
+import com.example.weathercoroutines.utils.download
 
 class WeatherAdapter(
     private var weathers: List<WeatherUiModel> = emptyList(),
@@ -25,6 +26,7 @@ class WeatherAdapter(
 
         @SuppressLint("SetTextI18n")
         fun bind(weather: WeatherUiModel) {
+            binding.icon.download(weather.icon)
             binding.weatherId.text = weather.id.toString()
             binding.latLon.text = "${weather.lat + weather.lon}"
             binding.root.tag = weather
