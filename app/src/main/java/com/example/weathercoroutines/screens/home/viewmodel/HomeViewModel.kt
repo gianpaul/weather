@@ -16,13 +16,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import kotlin.math.pow
-import kotlin.math.roundToInt
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val getWeatherUseCase: GetWeatherUseCase,
-    private val clearCacheUseCase: ClearCacheUseCase,
     private val addressLocationManager: AddressLocationManager
 ) : ViewModel() {
 
@@ -82,24 +79,6 @@ class HomeViewModel @Inject constructor(
                 addressLocationManager.fetchAddressPlaceDetails(address)
             }.onSuccess { address ->
                 _liveData.postValue(HomeState.UpdateAddress(address))
-            }.onFailure { error ->
-                _liveData.postValue(HomeState.Error(error))
-            }
-
-            loading.send(false)
-        }
-    }
-
-    fun clearCache() {
-
-        viewModelScope.launch(Dispatchers.IO) {
-
-            loading.send(true)
-
-            runCatching {
-                clearCacheUseCase()
-            }.onSuccess {
-                _liveData.postValue(HomeState.CacheCleared)
             }.onFailure { error ->
                 _liveData.postValue(HomeState.Error(error))
             }

@@ -4,10 +4,12 @@ import com.example.domain.model.WeatherModel
 
 interface WeatherRepository {
 
-    suspend fun getWeatherByCoordinates (
+    suspend fun getWeatherByCoordinates(
         latitude: Double,
         longitude: Double
     ): WeatherModel?
+
+    suspend fun getAllLocalWeather(): List<WeatherModel>?
 
     suspend fun clearCache()
 }

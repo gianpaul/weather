@@ -14,6 +14,9 @@ interface WeatherDao {
         longitude: Double
     ): WeatherEntity?
 
+    @Query("SELECT * FROM weather")
+    suspend fun getAllWeather(): List<WeatherEntity>?
+
     @Query("DELETE FROM weather")
     suspend fun deleteAllWeather()
 

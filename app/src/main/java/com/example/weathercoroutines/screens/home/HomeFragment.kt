@@ -10,8 +10,10 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.domain.model.Address
+import com.example.weathercoroutines.R
 import com.example.weathercoroutines.databinding.FragmentHomeBinding
 import com.example.weathercoroutines.maps.component.DialogItemWeather
 import com.example.weathercoroutines.screens.home.adapter.AddressesAdapter
@@ -52,13 +54,14 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupButtons() {
-        binding.btClearCache.setOnClickListener { viewModel.clearCache() }
+        binding.btShowCache.setOnClickListener {
+            findNavController().navigate(R.id.homeFragmentToLocalWeatherFragment)
+        }
     }
 
     private fun setupObserver() {
         viewModel.liveData.observe(viewLifecycleOwner) { state ->
             when (state) {
-                HomeState.CacheCleared -> Toast.makeText(context, "Cache cleared", LENGTH_SHORT).show()
                 is HomeState.Error -> Toast.makeText(context, "Something is wrong", LENGTH_SHORT).show()
                 is HomeState.SuccessAddresses -> addressesAdapter.update(state.addresses.take(3))
                 is HomeState.SuccessWeather -> {

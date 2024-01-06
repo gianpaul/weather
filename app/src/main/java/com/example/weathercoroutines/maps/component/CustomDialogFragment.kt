@@ -5,18 +5,18 @@ import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import com.example.weathercoroutines.R
-import com.example.weathercoroutines.databinding.ItemWeatherBinding
+import com.example.weathercoroutines.databinding.ItemWeatherDialogBinding
 import com.example.weathercoroutines.model.WeatherUiModel
 
 class DialogItemWeather(
     private val weatherUiModel: WeatherUiModel?
 ) : DialogFragment() {
 
-    private lateinit var binding: ItemWeatherBinding
+    private lateinit var binding: ItemWeatherDialogBinding
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(requireActivity())
-        binding = ItemWeatherBinding.inflate(layoutInflater)
+        binding = ItemWeatherDialogBinding.inflate(layoutInflater)
 
 
         setupDialog(weatherUiModel)

@@ -30,6 +30,12 @@ class WeatherRepositoryImpl @Inject constructor(
         return localDataSource.getWeatherByCoordinates(latitude, longitude)?.toDomainModel()
     }
 
+    override suspend fun getAllLocalWeather(): List<WeatherModel>? =
+        localDataSource.getAllWeather()?.map {
+            it.toDomainModel()
+    }
+
+
     override suspend fun clearCache() {
         localDataSource.clearCache()
     }

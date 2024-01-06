@@ -45,10 +45,10 @@
         app:mapTouchEnabled="true" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_clear_cache"
+        android:id="@+id/bt_show_cache"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/clear_cache"
+        android:text="@string/show_cache"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <ProgressBar

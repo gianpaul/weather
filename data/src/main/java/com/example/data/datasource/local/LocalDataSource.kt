@@ -12,6 +12,8 @@ class LocalDataSourceImpl(
         longitude: Double
     ): WeatherEntity? = weatherDao.getWeatherByCoordinates(latitude, longitude)
 
+    override suspend fun getAllWeather(): List<WeatherEntity>? = weatherDao.getAllWeather()
+
     override suspend fun saveWeather(weatherEntity: WeatherEntity?) {
         weatherDao.saveWeather(weatherEntity)
     }

@@ -18,6 +18,8 @@ interface LocalDataSource{
         longitude: Double
     ): WeatherEntity?
 
+    suspend fun getAllWeather(): List<WeatherEntity>?
+
     suspend fun saveWeather(weatherEntity: WeatherEntity?)
 
     suspend fun clearCache()

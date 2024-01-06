@@ -10,4 +10,14 @@
         android:name="com.example.weathercoroutines.screens.home.HomeFragment"
         android:label="@string/home_fragment"
         tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/localWeatherFragment"
+        android:name="com.example.weathercoroutines.screens.localweather.LocalWeatherFragment"
+        android:label="@string/local_weather_fragment"
+        tools:layout="@layout/fragment_local_weather" />
+
+    <action
+        android:id="@+id/homeFragmentToLocalWeatherFragment"
+        app:destination="@id/localWeatherFragment" />
 </navigation>

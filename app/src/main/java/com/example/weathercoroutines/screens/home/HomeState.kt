@@ -8,5 +8,4 @@ sealed interface HomeState {
     data class SuccessAddresses(val addresses: List<Address>): HomeState
     data class UpdateAddress(val address: Address?): HomeState
     data class Error(val throwable: Throwable): HomeState
-    object CacheCleared: HomeState
 }

@@ -2,6 +2,7 @@ package com.example.weathercoroutines.di
 
 import android.content.Context
 import com.example.domain.repository.WeatherRepository
+import com.example.domain.usecase.GetAllLocalWeatherUseCase
 import com.example.domain.usecase.GetWeatherUseCase
 import com.example.weathercoroutines.maps.PlacesAddressLocationManager
 import dagger.Module
@@ -20,6 +21,12 @@ object AppModule {
     fun provideGetWeatherUseCase(
         weatherRepository: WeatherRepository
     ): GetWeatherUseCase = GetWeatherUseCase(weatherRepository)
+
+    @Provides
+    @Singleton
+    fun provideGetAllLocalWeatherUseCase(
+        weatherRepository: WeatherRepository
+    ): GetAllLocalWeatherUseCase = GetAllLocalWeatherUseCase(weatherRepository)
 
     @Provides
     @Singleton
